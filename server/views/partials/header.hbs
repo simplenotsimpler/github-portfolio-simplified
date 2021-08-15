@@ -1,0 +1,77 @@
+<div class="site-brand-container ml-2 mb-2">
+  <!-- 
+    NOTE: 
+    Ignore the VS Code web accessibility error:
+      Provide a descriptive text in between the tags
+    It is not seeing the EJS template tag.
+  --> 
+  {{#if isError}}
+    
+      <h1 class="logo-text text-center">
+        <i class="far fa-surprise"></i>
+        Oops...
+      </h1>    
+  {{else}} 
+
+   <!-- 
+    NOTE: 
+    Ignore the VS Code web accessibility error:
+      Provide a descriptive text in between the tags
+    It is not seeing this correctly with using a template engine.
+  -->
+  <a href="/">
+    <img src="/img/sns_logo.png" width="60px" height="60px" alt="logo" aria-hidden="true" class="float-left pr-1 mr-1">
+  </a>
+  <div class="logo-block">
+    <a href="/">
+      <h1 class="logo-text">
+        {{ github.githubName }}
+      </h1>
+    </a>
+    <h2 class="job-title">{{ basics.jobTitle }}</h2>
+  </div>
+  {{/if}}  
+</div>
+
+{{#unless isError}}
+  
+  <figure class="quote-container mb-2">
+    <q>{{ basics.quote.text }} </q>
+    <figcaption>&mdash;{{ basics.quote.author }}  <cite><a href="{{ basics.quote.citeHref }}">{{ basics.quote.citeName }} </a></cite>
+    </figcaption>
+  </figure>
+
+  <nav class="nav-container mr-2 mb-2">
+    <ul class="nav-list">
+      <li>
+        <a href="#projects">
+          <i class="nav-icon fas fa-fw fa-code-branch"></i>
+          <span class="navtext">Projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="#skills">
+          <i class="nav-icon fas fa-fw fa-tools"></i>
+          <span class="navtext">Skills</span>
+        </a>
+      </li>
+      <li>
+        <!-- NOTE: if get too much spam, enhance with a contact form w/ captcha or use a domain email address where server has better filtering -->
+        <a href="mailto:{{ basics.email }}">
+          <i class="nav-icon fas fa-fw fa-fw fa-envelope"></i>
+          <span class="navtext">Contact</span>
+        </a>
+      </li> 
+      {{#each basics.profiles as | profile |}}   
+
+        <li>        
+            <a href="{{ profile.url }}" target="_blank">
+              <i class="nav-icon fab fa-fw fa-{{toLowerCaseHbs profile.network }} "></i>
+              <span class="navtext">{{ profile.network}}</span>
+            </a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+
+{{/unless}}

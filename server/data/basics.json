@@ -1,0 +1,25 @@
+{
+  "basics": {
+    "email": "contact@simplenotsimpler.com",
+    "jobTitle": "Software Developer",
+    "about": "Versatile software developer with a “simple but not simpler” approach that facilitates the creation of user- and developer-friendly applications. Looking for opportunities to further my transition from tech support to software development.",
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "simplenotsimpler",
+        "url": "https://www.linkedin.com/in/simplenotsimpler/"
+      },
+      {
+        "network": "GitHub",
+        "username": "simplenotsimpler",
+        "url": "https://github.com/simplenotsimpler"
+      }
+    ],
+    "quote": {
+      "text": "Everything Should Be Made as Simple as Possible, But Not Simpler",
+      "author": "Albert Einstein",
+      "citeHref": "https://quoteinvestigator.com/2011/05/13/einstein-simple/",
+      "citeName": "Quote Investigator"
+    }
+  }
+}

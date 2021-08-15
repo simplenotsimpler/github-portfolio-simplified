@@ -1,0 +1,15 @@
+<section class="error-container inner-container">
+  <div class="error">
+    <h1 class="error-title">
+      <i class="fas fa-exclamation-triangle error-icon"></i> 
+      {{ errorTitle }}
+    </h1>
+      
+   <p class="error-message">{{ errorMessage }}</p>
+   
+    <p class="error-message error-footer">
+      {{{ errorAction }}} or email <a href="mailto:{{ supportEmail }}"
+        class="error-redirect">support</a>.
+    </p>
+  </div>
+</section>

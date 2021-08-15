@@ -1,0 +1,496 @@
+/**
+ * =============================================
+ * =            ROOT STYLES / SETTINGS       =
+ * =============================================
+ *
+ */
+
+:root {
+
+  /* 
+  
+    https://darekkay.com/blog/accessible-color-palette/
+
+    A magic number of 40+ ensures a contrast ratio of 3+
+    A magic number of 50+ ensures a contrast ratio of 4.5+
+    A magic number of 70+ ensures a contrast ratio of 7+    
+  
+  */
+  /* 
+    
+    Magenta color palettes
+    https://designsystem.digital.gov/design-tokens/color/system-tokens/#magenta
+
+  */
+
+  /* Magent color palette from USWDS */
+
+  --magenta-5: #f9f0f2;
+	--magenta-10: #f6e1e8;
+	--magenta-20: #f0bbcc;
+	--magenta-30: #e895b3;
+	--magenta-40: #e0699f;
+	--magenta-50: #c84281;
+	--magenta-60: #8b4566;
+	--magenta-70: #66364b;
+	--magenta-80: #402731;
+	--magenta-90: #1b1617;
+
+
+  /* Magenta vivid color palette from USWDS: */
+  --magenta-5v: #fff2f5;
+	--magenta-10v: #ffddea;
+	--magenta-20v: #ffb4cf;
+	--magenta-30v: #ff87b2;
+	--magenta-40v: #fd4496;
+	--magenta-50v: #d72d79;
+	--magenta-60v: #ab2165;
+	--magenta-70v: #731f44;
+	--magenta-80v: #4f172e;
+
+
+  /* Colors */
+  --color-primary: var(--magenta-50v);
+  --color-dark: var(--magenta-60v);
+  --color-darkest: var(--magenta-80v);
+  --color-light: #fff;
+
+  --color-background: #ccc;
+  --shadow: 0 0.25rem 0.25rem rgba(104, 104, 104, 0.8);
+  
+  --color-shadow-decimal: 0, 0, 0;
+
+  --shadow-dark-50: 0.5rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.5);
+  --shadow-top-dark-50: 0rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.5);
+  --shadow-dark-25: 0.5rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.25);
+
+  --rounded-lg: 0.60rem;
+  
+ }
+
+/* 
+  don't try to set fonts b/c of BS4 Reboot
+  Source:
+  https://getbootstrap.com/docs/4.6/content/reboot/
+  The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a “native font stack” for optimum text rendering on every device and OS. 
+*/
+
+/* NOTE: Just scroll-margin is used b/c scroll-margin-top is not reliable across browsers. */
+
+a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+a:hover, a:visited {
+  color: var(--color-darkest);
+}
+
+.inner-container {
+  background-color: var(--color-light);
+  box-shadow: var(--shadow);
+  border-radius: var(--rounded-lg);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+
+/* height = 8rem - 1 row high */
+.container-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem !important;  
+  scroll-margin: 8rem;
+  color: var(--color-primary);
+}
+
+/**
+ * =============================================
+ * =        SITEWIDE CSS GRID LAYOUT           =
+ * =============================================
+ *
+ */
+
+.body-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "header-area header-area header-area"
+    "main-area main-area main-area";
+
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  background-color: var(--color-background);
+  padding: 0;
+  margin: 0;
+  padding-bottom: 0.5rem;
+
+}
+
+.header-container {
+  grid-area: header-area;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "site-brand-area quote-area nav-area"
+  ;
+
+  /* set row and col gaps separately */
+  column-gap: inherit;
+  row-gap: inherit;
+
+  align-items: center;
+
+  /* background is transparent with position sticky. explicitly set. */
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+
+
+.main-container {
+  grid-area: main-area;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "about-area about-area about-area"    
+    "projects-area projects-area projects-area"
+    "skills-area skills-area skills-area"
+    "work-area work-area work-area"
+    "education-area education-area education-area"
+  ;
+
+  /* set row and col gaps separately */
+  column-gap: inherit;
+  row-gap: inherit;
+
+}
+
+.about-container {
+  grid-area: about-area;
+}
+
+.about {
+  font-size: 1.25rem;
+}
+
+.projects-container {
+  grid-area: projects-area;
+}
+
+.skills-container {
+  grid-area: skills-area;
+}
+
+.work-container {
+  grid-area: work-area;
+}
+
+.education-container {
+  grid-area: education-area;
+}
+
+/* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
+.site-brand-container {
+  grid-area: site-brand-area;
+  /* or stretch??? */
+  align-self: start;
+  display: flex;
+  align-items: center;
+
+}
+
+.quote-container {
+  grid-area: quote-area;
+  justify-self: center;
+}
+
+.nav-container {
+  grid-area: nav-area;
+
+}
+
+.nav-list {
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  justify-items: stretch;
+  /* Bootstrap default for ul - margin-bottom: 1rem. Need to decrease so has space at top. Only shows as issue in Firefox */
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+
+}
+
+/* https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons */
+/* equivalent to fa-2x */
+.nav-icon {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+/* add span and display block to display text below font awesome icon */
+/* https://stackoverflow.com/questions/31138745/font-awesome-icon-button-with-label-below */
+.navtext {
+  display: block;
+}
+
+.logo-block{
+  display: block;
+}
+
+.logo-text {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.job-title {
+  font-size: 1.5rem;
+}
+
+.header-container a {
+  color: var(--color-light) !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header-container a:hover {
+  color: var(--color-darkest) !important;
+}
+
+/**
+ * =============================================
+ * =            GLOBAL STYLES / SETTINGS       =
+ * =============================================
+ *
+ */
+
+.pipe-separator:not(:last-child)::after {
+  content: "|";
+}
+
+p {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.item-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+dl {
+  margin-bottom: 0;
+}
+
+dt {
+  text-transform: uppercase;
+}
+
+.quote-container q {
+  font-size: larger;
+}
+
+/**
+ * =============================================
+ * =                 WORK                      =
+ * =============================================
+ *
+ */
+
+.company-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  grid-template-areas:
+    "company company company-location"
+  ;
+  padding-bottom: 0.5rem;
+  border-bottom: solid;
+}
+
+.company {
+  grid-area: company;
+}
+
+.company-location {
+  grid-area: company-location;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.company-date {
+  grid-area: company-date;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.position {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-areas:
+    "position-title position-date"
+  ;
+  column-gap: 0.25rem;
+}
+
+.position-title {
+  grid-area: position-title;
+}
+
+.position-date {
+  grid-area: position-date;
+  justify-self: end;
+}
+
+
+/**
+ * =============================================
+ * =                 EDUCATION                 =
+ * =============================================
+ *
+ */
+
+.institution-item {
+  padding-bottom: 0.5rem;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1.5fr auto;
+  grid-template-areas:
+    "education-header-area education-header-area"
+    "degree-info-area institution-date-area"
+
+}
+
+.education-header {
+  display: grid;
+  grid-area: education-header-area;
+  grid-template-columns: 1.5fr auto;
+  align-items: center;
+  grid-template-areas:
+    "institution-area institution-location-area"
+  ;
+
+  column-gap: 0.5rem;
+
+  padding-bottom: 0.5rem;
+  border-bottom: solid;
+}
+
+.degree-info {
+  grid-area: degree-info-area;
+}
+
+.institution {
+  grid-area: institution-area;
+  font-weight: bold;
+}
+
+.institution-location {
+  grid-area: institution-location-area;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.institution-date {
+  grid-area: institution-date-area;
+  justify-self: end;
+}
+
+
+ /**
+ * =============================================
+ * =                 CARDS                     =
+ * =============================================
+ *
+ */
+ .cards {
+  display: grid;
+  column-gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  }
+
+.card {
+  /* position was relative */
+  /* unset the position so stays behind sticky header */
+  position: unset !important;
+  background-color: transparent;
+  padding: 0.5rem;
+  border: solid var(--color-primary) thin;
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: solid;
+}
+
+.card-footer {
+  font-size: 1.25rem;
+}
+
+/* actual size matching Bootstrap Grid large */
+@media only screen and (max-width: 992px) {
+
+  .quote-container {
+    display: none;
+  }
+
+  .site-brand-container {
+    text-align: center;
+  }
+
+  .nav-container .fas,
+  .nav-container .fab {
+    /* https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons */
+    /* equivalent to fa-lg */
+    font-size: 1.33rem;
+  }
+
+  .body-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header-area"
+      "main-area";
+  }
+
+  .header-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "site-brand-area"
+      "nav-area"
+    ;
+  }
+
+  .main-container {
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+      "about-area"
+      "projects-area"
+      "skills-area"
+      "work-area"
+      "education-area"
+    ;
+  }
+
+  
+  [class$="container"] {
+    scroll-margin: 24rem;
+  }
+}

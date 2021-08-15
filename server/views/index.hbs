@@ -1,0 +1,134 @@
+<section class="about-container inner-container">
+  <h2 class="container-title" id="about"><i class="fas fa-user"></i> About</h2>
+  <p class="about card mb-3">    
+    {{ basics.about }} 
+  </p>
+</section>
+
+<section class="projects-container inner-container">
+  <h2 class="container-title" id="projects"><i class="fas fa-code-branch"></i> Projects</h2>
+  <div class="cards">
+    <!-- Semantic HTML note: using article not section b/c each GitHub repo can be found independently on GitHub -->
+    {{#each github.repos as | repo | }}    
+      <article class="card mb-3">
+        <header class="card-header h-25">
+          <h1 class="card-title text-center h4 font-weight-bold">{{ repo.name }}</h1>
+        </header>
+        <section class="card-body">
+          <p class="card-text mb-4">{{ repo.description }}</p>
+          <div class="card-text">
+            <dl>
+              <dt class="d-inline-block">Programming Languages:</dt>
+              {{#each repo.languages.languageList as | listItem |}}
+              <dd class="d-inline-block pipe-separator">{{ listItem.language.name }} </dd>
+              {{/each}}
+            </dl>
+          </div>
+        </section>
+    
+        <footer class="card-footer bg-transparent text-center">
+    
+          <a href="{{ repo.url }}" target="_blank" class="link">
+            <i class="fas fa-fw fa-code-branch"></i><span class="link-text">GitHub</span></a>
+
+          {{#if repo.homepageUrl }}
+          <a href="{{ repo.homepageUrl }}" target="_blank" class="link">
+            <i class="fas fa-fw fa-globe"></i><span class="link-text">Demo</span>
+          {{/if}} 
+          </a>        
+        </footer>
+      </article>
+    {{/each}}
+  </div>
+</section>
+<section class="skills-container inner-container">
+  <h2 class="container-title" id="skills"><i class="fas fa-tools"></i> Skills</h2>
+  <dl class="card mb-3">
+    {{#each skills as | skill | }}
+      <div>
+        <dt class="d-inline-block">
+          {{ skill.name }}:
+        </dt>
+          {{#each skill.keywords as | keyword |}}
+            <dd class="d-inline-block pipe-separator">
+              {{ keyword }}
+            </dd>
+          {{/each}}
+      </div>
+    {{/each}}    
+  </dl>
+</section>
+
+{{!-- if use serverless, may not implement these --}}
+{{#if work}}
+<section class="work-container inner-container">
+  <h2 class="container-title" id="work"><i class="fas fa-suitcase"></i> Work Experience</h2>
+  <div class="cards">
+    {{#each work as | workItem | }}
+      <section class="card mb-3">
+        <header class="company-header">
+          <h3 class="item-title company">
+            {{ workItem.company }}
+          </h3>
+          <p class="company-location">
+            {{ workItem.location }}
+          </p>
+        </header>
+    
+        <ul class="list-unstyled">
+          {{#each workItem.positions as | positionItem | }}
+            <li class="position">
+              <p class="position-title">
+                {{ positionItem.position }}
+              </p>
+              <p class="position-date">
+                {{formatWorkDate positionItem.startDate }}
+                  to
+                  {{formatWorkDate positionItem.endDate }}
+              </p>
+            </li>
+            {{/each}}
+        </ul>
+        <ul class="combined-highlights">
+          {{#each workItem.combinedHighlights as | highlight| }}
+            <li class="highlight-item">
+              {{ highlight }}
+            </li>
+            {{/each}} 
+        </ul>
+      </section>
+    {{/each}}    
+  </div>
+</section>
+{{/if}}
+
+{{#if education }}
+<section class="education-container inner-container">
+  <h2 class="container-title" id="education"><i class="fas fa-university"></i> Education</h2>
+  <div class="cards"> 
+    {{#each education as | educationItem |}}
+      <section class="institution-item card mb-3">
+        <header class="education-header">
+          <h3 class="item-title institution">
+            {{ educationItem.institution }}
+          </h3>
+          <p class="institution-location">
+            {{ educationItem.location }}
+          </p>    
+        </header>
+        <p class="degree-info">
+          {{educationItem.studyType }}
+            {{#if educationItem.area}}
+              educationItem.area
+            {{else}}
+              ''
+            {{/if}}
+        </p>
+        <p class="institution-date">
+          {{formatYear educationItem.startDate }} to {{formatYear educationItem.endDate }}
+          </p>
+      </section>
+    {{/each}}
+  </div>
+</section>
+{{/if}}

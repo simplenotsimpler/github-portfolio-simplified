@@ -1,0 +1,67 @@
+.header-container {
+  grid-template-areas: unset;
+  grid-template-areas:
+  "site-brand-area site-brand-area site-brand-area"
+  ;
+  justify-items: center;
+}
+
+.main-container {
+  grid-area: main-area;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  /* grid-template-rows: repeat(1, 1fr); */
+ 
+
+  grid-template-areas: unset;
+   grid-template-areas:
+  "error-area error-area error-area"
+  "error-area error-area error-area"
+  "error-area error-area error-area"
+  "error-area error-area error-area"
+  "error-area error-area error-area"
+  ;
+  /* justify-items: center; */
+  /* need height in order to make it take rest of page */
+  height: 80vh;
+}
+
+.error-container {
+  grid-area: error-area;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: center; */
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+}
+
+.error {
+  margin-right: auto;
+  margin-left: auto;  
+}
+.error-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 1.75rem;
+}
+.error-message {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.error-icon {
+  color: var(--color-primary);
+}
+
+/* .error-redirect {
+  grid-area: error-redirect;
+} */
+
+/* .error-code {
+  font-size: smaller !important;
+} */

@@ -1,0 +1,38 @@
+{
+  "name": "github-portfolio-simplified",
+  "version": "1.0.0",
+  "description": "Simple Node/Express app which combines portfolio data stored in a MongoDB Atlas database with pinned GitHub repos and renders into a Portfolio website.",
+  "main": "server-local.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server-local",
+    "dev": "nodemon server-local"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "SimpleNotSimpler",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-rate-limit": "^5.3.0",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "xss-clean": "^0.1.1"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simplenotsimpler/github-portfolio-simplified.git"
+  },
+  "bugs": "https://github.com/simplenotsimpler/github-portfolio-simplified/issues",
+  "homepage": "https://github.com/simplenotsimpler/github-portfolio-simplified/#readme"
+  
+}
