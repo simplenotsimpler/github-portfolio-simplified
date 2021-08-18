@@ -26,6 +26,18 @@ const app = express();
 // need this for environments like Heroku
 app.enable('trust proxy');
 
+//https://devcenter.heroku.com/articles/http-routing#heroku-headers
+//https://help.heroku.com/J2R1S4T8/can-heroku-force-an-application-to-use-ssl-tls
+//https://jaketrent.com/post/https-redirect-node-heroku
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
+
 /* 
   NOTE: 
     can't use underscore in file names in Handlebars
