@@ -16,7 +16,7 @@
         </header>
         <section class="card-body">
           <p class="card-text mb-4">{{ repo.description }}</p>
-          <div class="card-text">
+          <div class="card-text mb-4">
             <dl>
               <dt class="d-inline-block">Programming Languages:</dt>
               {{#each repo.languages.languageList as | listItem |}}
@@ -24,6 +24,15 @@
               {{/each}}
             </dl>
           </div>
+          <div class="card-text small mb-4">
+            <dl>
+              <dt class="d-inline-block">Topics:</dt>
+              {{#each repo.repositoryTopics.nodes as | node |}}
+              <dd class="d-inline-block pipe-separator">{{ node.topic.name }} </dd>
+              {{/each}}
+            </dl>
+          </div>
+
         </section>
     
         <footer class="card-footer bg-transparent text-center">

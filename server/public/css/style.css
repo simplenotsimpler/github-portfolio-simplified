@@ -422,8 +422,9 @@ dt {
  .cards {
   display: grid;
   column-gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-  }
+  /* min increased from 18.75 to 22 - helps push cards on next line when more than 3 repos */
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+}
 
 .card {
   /* position was relative */
