@@ -25,14 +25,13 @@
     "express-rate-limit": "^5.3.0",
     "helmet": "^4.6.0",
     "hpp": "^0.2.3",
+    "ssl-express-www": "^3.0.8",
     "xss-clean": "^0.1.1"
   },
-  
   "repository": {
     "type": "git",
     "url": "https://github.com/simplenotsimpler/github-portfolio-simplified.git"
   },
   "bugs": "https://github.com/simplenotsimpler/github-portfolio-simplified/issues",
   "homepage": "https://github.com/simplenotsimpler/github-portfolio-simplified/#readme"
-  
 }
