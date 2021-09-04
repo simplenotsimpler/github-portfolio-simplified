@@ -61,9 +61,9 @@
           <i class="nav-icon fas fa-fw fa-fw fa-envelope"></i>
           <span class="navtext">Contact</span>
         </a>
-      </li> 
-      {{#each basics.profiles as | profile |}}   
-
+      </li>
+      <!-- LinkedIn profile is public, but LinkedIn detects IP and requires login so it can force recruiters to sign in. --> 
+      {{#each basics.profiles as | profile |}}
         <li>        
             <a href="{{ profile.url }}" target="_blank">
               <i class="nav-icon fab fa-fw fa-{{toLowerCaseHbs profile.network }} "></i>
