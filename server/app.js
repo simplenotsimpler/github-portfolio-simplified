@@ -59,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
   NOTE: when enable helmet get content security policy messages in Firefox. Do not get these in Chrome.
     Content Security Policy: Couldn’t process unknown directive ‘script-src-attr’
     Content Security Policy: The page’s settings blocked the loading of a resource at inline (“script-src”).
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src-attr#browser_compatibility
 */
 app.use(helmet());
 
