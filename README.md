@@ -1,5 +1,5 @@
 # Simple GitHub-based Portfolio
-Simple Node/Express app which combines portfolio data stored in a MongoDB Atlas database with pinned GitHub repos and renders into a Portfolio website.
+Simple Node/Express app hosted on Heroku which combines portfolio data stored in a MongoDB Atlas database with pinned GitHub repos and renders into a Portfolio website. MongoDB Atlas data fetched via [portfolio-db-api](https://github.com/simplenotsimpler/portfolio-db-api).
 
 ## Live Site:
 http://simplenotsimpler.com
