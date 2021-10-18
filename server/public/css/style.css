@@ -450,6 +450,7 @@ dt {
 
   .site-brand-container {
     text-align: center;
+    justify-content: center;
   }
 
   .nav-container .fas,
@@ -473,6 +474,7 @@ dt {
       "site-brand-area"
       "nav-area"
     ;
+    
   }
 
   .main-container {
