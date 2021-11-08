@@ -1,4 +1,12 @@
+const Autolinker = require( 'autolinker' );
 
+
+
+function addUri (input) {
+  const autolinker = new Autolinker();
+
+  return autolinker.link( input);
+}
 
 // handlebars helpers organization: https://stackoverflow.com/questions/38661295/node-express-handlebars-where-to-define-custom-helpers
 
@@ -42,6 +50,7 @@ function formatWorkDate(stringDate) {
 }
 
 module.exports = {
+  addUri,
   toLowerCaseHbs,
   formatWorkDate,
   formatYear,

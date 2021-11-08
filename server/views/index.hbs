@@ -102,9 +102,9 @@
         <ul class="combined-highlights">
           {{#each workItem.combinedHighlights as | highlight| }}
             <li class="highlight-item">
-              {{ highlight }}
+              {{{ addUri highlight }}}
             </li>
-            {{/each}} 
+          {{/each}} 
         </ul>
       </section>
     {{/each}}    
