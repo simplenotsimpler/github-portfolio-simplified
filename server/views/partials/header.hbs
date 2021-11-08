@@ -65,7 +65,7 @@
       <!-- LinkedIn profile is public, but LinkedIn detects IP and requires login so it can force recruiters to sign in. --> 
       {{#each basics.profiles as | profile |}}
         <li>        
-            <a href="{{ profile.url }}" target="_blank">
+            <a href="{{ profile.url }}" target="_blank" rel="noreferrer noopener">
               <i class="nav-icon fab fa-fw fa-{{toLowerCaseHbs profile.network }} "></i>
               <span class="navtext">{{ profile.network}}</span>
             </a>
