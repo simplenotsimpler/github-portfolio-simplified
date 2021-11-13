@@ -241,7 +241,7 @@ a:hover, a:visited {
 
 /* add span and display block to display text below font awesome icon */
 /* https://stackoverflow.com/questions/31138745/font-awesome-icon-button-with-label-below */
-.navtext {
+.nav-text {
   display: block;
 }
 
