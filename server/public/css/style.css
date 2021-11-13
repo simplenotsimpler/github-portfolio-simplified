@@ -146,6 +146,9 @@ a:hover, a:visited {
 
   align-items: center;
 
+  padding-left: 0.5rem;
+  padding-right: 1.25rem;
+
   /* background is transparent with position sticky. explicitly set. */
   background-color: var(--color-dark);
   color: var(--color-light);

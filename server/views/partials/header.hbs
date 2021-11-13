@@ -19,8 +19,15 @@
       Provide a descriptive text in between the tags
     It is not seeing this correctly with using a template engine.
   -->
+
+  <!-- 
+    Note: BS5.x changes in sizing, etc. to account for RTL. use start/end
+    https://getbootstrap.com/docs/5.1/utilities/spacing/
+    s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL
+    e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL
+  -->
   <a href="/">
-    <img src="/img/sns_logo.png" width="60px" height="60px" alt="logo" aria-hidden="true" class="float-left pr-1 mr-1">
+    <img src="/img/sns_logo.png" width="60px" height="60px" alt="logo" aria-hidden="true" class="float-left pe-1 me-1">
   </a>
   <div class="logo-block">
     <a href="/">
@@ -41,7 +48,7 @@
     </figcaption>
   </figure>
 
-  <nav class="nav-container mr-2 mb-2">
+  <nav class="nav-container me-2 mb-2">
     <ul class="nav-list">
       <li>
         <a href="#projects">
