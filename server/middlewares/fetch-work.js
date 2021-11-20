@@ -40,9 +40,13 @@ const fetchWork = async (req, res, next) => {
     
     res.locals.work.forEach((el)=>{
       el.positions.forEach((position)=> {
+        if(position.endDate === el.companyEndDate){
+          el.location = position.location;
+        }
+        
         if(position.endDate === currentDate){
           position.endDate = 'Present';
-        }
+        }     
       })
     });
 
