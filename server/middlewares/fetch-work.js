@@ -22,6 +22,23 @@ const fetchWork = async (req, res, next) => {
 
     res.locals.work=axiosResponse.data;
 
+    
+    
+    /* 
+    https://stackoverflow.com/questions/12192491/sort-array-by-iso-8601-date
+    answered Jun 25 '19 at 9:26 icoum
+    myArray.sort(function(a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });      
+    
+    */
+    res.locals.work.sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate));
+
+    res.locals.work.forEach(el => {
+      el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+    })
+    
+
     next();
 
   }

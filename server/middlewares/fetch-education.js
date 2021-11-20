@@ -22,6 +22,8 @@ const fetchEducation = async (req, res, next) => {
 
     res.locals.education=axiosResponse.data;
 
+    res.locals.education.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+
     next();
 
   }
