@@ -1,4 +1,5 @@
 const axios = require('axios');
+const currentDate = new Date().toISOString().split('T')[0];
 
 const fetchWork = async (req, res, next) => {
 
@@ -21,7 +22,6 @@ const fetchWork = async (req, res, next) => {
     const axiosResponse = await axios(config);
 
     res.locals.work=axiosResponse.data;
-
     
     
     /* 
@@ -38,6 +38,13 @@ const fetchWork = async (req, res, next) => {
       el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
     })
     
+    res.locals.work.forEach((el)=>{
+      el.positions.forEach((position)=> {
+        if(position.endDate === currentDate){
+          position.endDate = 'Present';
+        }
+      })
+    });
 
     next();
 
