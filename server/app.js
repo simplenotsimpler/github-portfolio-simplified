@@ -117,9 +117,10 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (r
     const github = res.locals.github;
     const work = res.locals.work;
     const education = res.locals.education;
-    const protocol = req.protocol;
-    const host = req.headers.host;
-    const fullSite = `${protocol}://${host}`;
+    const url = new URL(basics.website);
+
+    const host = url.host;
+    const website = basics.website;
     
     res.status(200).render('resume', {
       realName: process.env.REAL_NAME,
@@ -131,7 +132,7 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (r
       siteName: `${process.env.REAL_NAME} | ${github.githubName} |  Resume`,
       isError: false,
       layout: false,
-      fullSite,
+      website,
       host,
       styleSheet: 'resume.css'
     });   
