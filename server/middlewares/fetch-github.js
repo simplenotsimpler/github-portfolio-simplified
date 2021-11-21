@@ -28,11 +28,7 @@ const fetchGitHub = async (req, res, next) => {
     const axiosResponse = await axios(config);
 
     const {data: {viewer: {githubName, githubLink, email, pinnedItems: {repos}}}}=axiosResponse.data;
-   
-    // if(!repos.length) {
-    //   handleError('No repos are pinned. Please pin some repos.');
-    // }
-
+    
   res.locals.github = {      
       githubName,
       email,
