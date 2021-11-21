@@ -97,7 +97,8 @@ app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, re
       work,
       education, 
       siteName: `${github.githubName} | Portfolio`,
-      isError: false
+      isError: false,
+      styleSheet: 'style.css'
 
     });   
 
@@ -116,6 +117,9 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (r
     const github = res.locals.github;
     const work = res.locals.work;
     const education = res.locals.education;
+    const protocol = req.protocol;
+    const host = req.headers.host;
+    const fullSite = `${protocol}://${host}`;
     
     res.status(200).render('resume', {
       realName: process.env.REAL_NAME,
@@ -124,10 +128,12 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (r
       skills,
       work,
       education, 
-      siteName: `${github.githubName} | Resume`,
+      siteName: `${process.env.REAL_NAME} | ${github.githubName} |  Resume`,
       isError: false,
       layout: false,
-      host: req.headers.host
+      fullSite,
+      host,
+      styleSheet: 'resume.css'
     });   
 
   } catch (error) {

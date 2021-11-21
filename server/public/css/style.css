@@ -87,6 +87,10 @@ a:hover, a:visited {
   color: var(--color-darkest);
 }
 
+.link-text{
+  padding-left: 0.25rem;
+}
+
 .inner-container {
   background-color: var(--color-light);
   box-shadow: var(--shadow);
