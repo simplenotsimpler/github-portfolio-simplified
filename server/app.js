@@ -108,6 +108,35 @@ app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, re
 
 });
 
+app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
+  try {
+
+    //easier to read with assignments up here than in the res.render
+    const skills = res.locals.skills;
+    const github = res.locals.github;
+    const work = res.locals.work;
+    const education = res.locals.education;
+    
+    res.status(200).render('resume', {
+      realName: process.env.REAL_NAME,
+      basics, 
+      github, 
+      skills,
+      work,
+      education, 
+      siteName: `${github.githubName} | Resume`,
+      isError: false,
+      layout: false,
+      host: req.headers.host
+    });   
+
+  } catch (error) {
+    next(error);
+  }
+
+
+});
+
 /* ==================================== */
 /*   INFORMAL UNHANDLED TESTING         */
 /* ==================================== */

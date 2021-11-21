@@ -49,9 +49,18 @@ function formatWorkDate(stringDate) {
   
 }
 
+function cleanUri (stringUri){
+  const url = new URL(stringUri);
+  const hostName = url.hostname.replace('www.', '');
+  const pathName = url.pathname;
+
+  return shortUrl = hostName + pathName;
+}
+
 module.exports = {
   addUri,
   toLowerCaseHbs,
   formatWorkDate,
   formatYear,
+  cleanUri
 }

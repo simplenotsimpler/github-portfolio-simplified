@@ -1,0 +1,190 @@
+
+body *{
+  
+  line-height: 1.2;
+}
+
+a {
+  color: #000;
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  margin-bottom: 0.2rem;  
+}
+
+p {
+  margin-bottom: 0.25rem !important;
+}
+
+.project-description {
+  font-size: 0.85rem;
+}
+
+.pipe-separator:not(:last-child)::after {
+  content: "|";
+}
+
+.description-list{
+  font-size: 0.85rem;
+}
+
+.header-container {
+  border-bottom: solid;
+}
+
+.list-group-item {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
+
+.list-group-flush > .list-group-item:last-child {
+  border-width: 0 0 1px !important;
+}
+
+.card {
+  border-radius: 0 !important;
+  border-width: 0 0 1px !important;
+}
+
+
+/**
+ * =============================================
+ * =                 WORK                      =
+ * =============================================
+ *
+ */
+
+ .company-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  grid-template-areas:
+    "company company company-location"
+  ;
+  padding-bottom: 0.5rem;
+  border-bottom: solid;
+}
+
+.company {
+  grid-area: company;
+}
+
+.company-location {
+  grid-area: company-location;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.company-date {
+  grid-area: company-date;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.position {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-areas:
+    "position-title position-date"
+  ;
+  column-gap: 0.25rem;
+}
+
+.position-title {
+  grid-area: position-title;
+}
+
+.position-date {
+  grid-area: position-date;
+  justify-self: end;
+}
+
+
+/**
+ * =============================================
+ * =                 EDUCATION                 =
+ * =============================================
+ *
+ */
+
+ .institution-item {
+  padding-bottom: 0.5rem;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 1.5fr auto;
+  grid-template-areas:
+    "education-header-area education-header-area"
+    "degree-info-area institution-date-area"
+
+}
+
+.education-header {
+  display: grid;
+  grid-area: education-header-area;
+  grid-template-columns: 1.5fr auto;
+  align-items: center;
+  grid-template-areas:
+    "institution-area institution-location-area"
+  ;
+
+  column-gap: 0.5rem;
+
+  padding-bottom: 0.5rem;
+  border-bottom: solid;
+}
+
+.degree-info {
+  grid-area: degree-info-area;
+}
+
+.institution {
+  grid-area: institution-area;
+  font-weight: bold;
+}
+
+.institution-location {
+  grid-area: institution-location-area;
+  justify-self: end;
+  font-weight: bold;
+}
+
+.institution-date {
+  grid-area: institution-date-area;
+  justify-self: end;
+}
+
+/**
+ * =============================================
+ * =        GENERAL PRINT STYLES               =
+ * =============================================
+ *
+ */
+
+/* Defining all page breaks */
+a,
+blockquote,
+q,
+table,
+pre,
+ul,
+ol,
+dl,
+p,
+p>span,
+li,
+section {
+  page-break-inside: avoid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+figure {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
