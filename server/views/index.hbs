@@ -1,12 +1,9 @@
 <section class="about-container inner-container">
   <div class="d-flex justify-content-between">
   <h2 class="container-title" id="about"><i class="fas fa-user"></i> About</h2>
-  {{!-- <div class="ms-auto"> --}}
     <a href="/resume" target="_blank" rel="noopener noreferrer" class="link">
       <i class="fas faw fa-print"></i><span class="link-text">Resume</span>
     </a>
-  {{!-- </div> --}}
-
   </div>
   <p class="about card mb-3">    
     {{ basics.about }} 
@@ -78,7 +75,6 @@
   </dl>
 </section>
 
-{{!-- if use serverless, may not implement these --}}
 {{#if work}}
 <section class="work-container inner-container">
   <h2 class="container-title" id="work"><i class="fas fa-suitcase"></i> Work Experience</h2>
