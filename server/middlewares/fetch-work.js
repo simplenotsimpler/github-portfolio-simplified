@@ -23,7 +23,6 @@ const fetchWork = async (req, res, next) => {
 
     res.locals.work=axiosResponse.data;
     
-    
     /* 
     https://stackoverflow.com/questions/12192491/sort-array-by-iso-8601-date
     answered Jun 25 '19 at 9:26 icoum
@@ -34,22 +33,28 @@ const fetchWork = async (req, res, next) => {
     */
     res.locals.work.sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate));
 
-    res.locals.work.forEach(el => {
+    /* 
+      replace forEach with for...of loop to fix sort bug
+      - sort bug only appeared on Heroku
+      - occurred when open the https://github-portfolio-simplified.herokuapp.com/ link or refreshed
+      - occurred in Firefox and Chrome
+
+    */
+
+    for await (const el of res.locals.work) { 
       el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
-    })
-    
-    res.locals.work.forEach((el)=>{
-      el.positions.forEach((position)=> {
+      
+      for await (const position of el.positions) {
         if(position.endDate === el.companyEndDate){
           el.location = position.location;
         }
         
         if(position.endDate === currentDate){
           position.endDate = 'Present';
-        }     
-      })
-    });
-
+        } 
+      }
+    }
+    
     next();
 
   }
