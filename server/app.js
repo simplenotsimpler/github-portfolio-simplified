@@ -25,7 +25,12 @@ const fetchEducation = require('./middlewares/fetch-education');
 const app = express();
 
 // need this for environments like Heroku
-app.enable('trust proxy');
+/* 
+  specifically need to set the second parameter to 1 for express-rate-limiter
+  https://stackoverflow.com/questions/62494060/express-rate-limit-not-working-when-deployed-to-heroku
+*/
+
+app.enable('trust proxy', 1);
 
 if(process.env.NODE_ENV === 'production') {
   app.use(secure);
