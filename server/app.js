@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const hbs  = require('express-handlebars');
+const { engine }  = require('express-handlebars');
 const hbsHelpers = require('./handlebars-helpers');
 
 const { defaultErrorHandler, renderError } = require('./middlewares/error-handlers.js');
@@ -43,7 +43,7 @@ if(process.env.NODE_ENV === 'production') {
     https://github.com/handlebars-lang/handlebars.js/issues/1730
 */
 //set view engine to handlebars and use file extension hbs
-app.engine('hbs', hbs({  
+app.engine('hbs', engine({  
   defaultLayout: 'layout',
   extname: '.hbs',
   helpers: hbsHelpers
