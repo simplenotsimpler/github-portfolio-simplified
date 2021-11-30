@@ -3,6 +3,9 @@ const path = require('path');
 const { engine }  = require('express-handlebars');
 const hbsHelpers = require('./handlebars-helpers');
 
+//compression
+const compression = require('compression');
+
 const { defaultErrorHandler, renderError } = require('./middlewares/error-handlers.js');
 
 //standard security imports
@@ -84,7 +87,8 @@ app.use(xss());
 // Prevent http param pollution
 app.use(hpp());
 
-
+//compress
+app.use(compression());
 
 app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
   try {
