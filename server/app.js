@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const hbs  = require('express-handlebars');
+const { engine }  = require('express-handlebars');
 const hbsHelpers = require('./handlebars-helpers');
 
 const { defaultErrorHandler, renderError } = require('./middlewares/error-handlers.js');
@@ -25,7 +25,12 @@ const fetchEducation = require('./middlewares/fetch-education');
 const app = express();
 
 // need this for environments like Heroku
-app.enable('trust proxy');
+/* 
+  specifically need to set the second parameter to 1 for express-rate-limiter
+  https://stackoverflow.com/questions/62494060/express-rate-limit-not-working-when-deployed-to-heroku
+*/
+
+app.enable('trust proxy', 1);
 
 if(process.env.NODE_ENV === 'production') {
   app.use(secure);
@@ -38,7 +43,7 @@ if(process.env.NODE_ENV === 'production') {
     https://github.com/handlebars-lang/handlebars.js/issues/1730
 */
 //set view engine to handlebars and use file extension hbs
-app.engine('hbs', hbs({  
+app.engine('hbs', engine({  
   defaultLayout: 'layout',
   extname: '.hbs',
   helpers: hbsHelpers
