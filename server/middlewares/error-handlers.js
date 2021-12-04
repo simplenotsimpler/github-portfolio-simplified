@@ -9,7 +9,7 @@
     errorMessage,
     errorAction,
     siteName: 'Portfolio',
-    supportEmail: 'support@domain.com',
+    supportEmail: process.env.SUPPORT_EMAIL || 'support@domain.com',
     isError: true
   });
 }
