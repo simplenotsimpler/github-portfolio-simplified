@@ -107,7 +107,7 @@ app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, re
       education, 
       siteName: `${github.githubName} | Portfolio`,
       isError: false,
-      styleSheet: 'style.css'
+      isResume: false
 
     });   
 
@@ -143,7 +143,7 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (r
       layout: false,
       website,
       host,
-      styleSheet: 'resume.css'
+      isResume: true
     });   
 
   } catch (error) {
