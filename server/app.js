@@ -27,6 +27,9 @@ const fetchEducation = require('./middlewares/fetch-education');
 //set app
 const app = express();
 
+//compress
+app.use(compression({level: 8}));
+
 // need this for environments like Heroku
 /* 
   specifically need to set the second parameter to 1 for express-rate-limiter
@@ -87,8 +90,7 @@ app.use(xss());
 // Prevent http param pollution
 app.use(hpp());
 
-//compress
-app.use(compression());
+
 
 app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
   try {
