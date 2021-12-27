@@ -21,7 +21,7 @@ const rateLimiter = require('./middlewares/rate-limiter');
 const {basics} = require('./data/basics.json');
 const fetchSkills = require('./middlewares/fetch-skills');
 const fetchGitHub = require('./middlewares/fetch-github');
-const fetchWork = require('./middlewares/fetch-work');
+const fetchWorkByCompany = require('./middlewares/fetch-work-by-company');
 const fetchEducation = require('./middlewares/fetch-education');
 
 //set app
@@ -92,7 +92,7 @@ app.use(hpp());
 
 
 
-app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
+app.get('/', fetchGitHub, fetchSkills, fetchWorkByCompany, fetchEducation, async (req, res, next) => {
   try {
 
     //easier to read with assignments up here than in the res.render
@@ -120,7 +120,7 @@ app.get('/', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, re
 
 });
 
-app.get('/resume', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
+app.get('/resume', fetchGitHub, fetchSkills, fetchWorkByCompany, fetchEducation, async (req, res, next) => {
   try {
 
     //easier to read with assignments up here than in the res.render

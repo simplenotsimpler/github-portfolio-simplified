@@ -1,7 +1,7 @@
 const axios = require('axios');
 const currentDate = new Date().toISOString().split('T')[0];
 
-const fetchWork = async (req, res, next) => {
+const fetchWorkByCompany = async (req, res, next) => {
 
   try {
     const api_key = process.env.MONGO_REALM_APP_API_KEY;
@@ -65,5 +65,5 @@ const fetchWork = async (req, res, next) => {
   }
 }
 
-module.exports = fetchWork;
+module.exports = fetchWorkByCompany;
 
