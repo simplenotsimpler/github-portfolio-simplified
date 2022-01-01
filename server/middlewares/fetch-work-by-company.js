@@ -21,7 +21,7 @@ const fetchWorkByCompany = async (req, res, next) => {
 
     const axiosResponse = await axios(config);
 
-    res.locals.work=axiosResponse.data;
+    res.locals.workByCompany=axiosResponse.data;
     
     /* 
     https://stackoverflow.com/questions/12192491/sort-array-by-iso-8601-date
@@ -31,7 +31,7 @@ const fetchWorkByCompany = async (req, res, next) => {
     });      
     
     */
-    res.locals.work.sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate));
+    res.locals.workByCompany.sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate));
 
     /* 
       replace forEach with for...of loop to fix sort bug
@@ -41,7 +41,7 @@ const fetchWorkByCompany = async (req, res, next) => {
 
     */
 
-    for await (const el of res.locals.work) { 
+    for await (const el of res.locals.workByCompany) { 
       el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
       
       for await (const position of el.positions) {

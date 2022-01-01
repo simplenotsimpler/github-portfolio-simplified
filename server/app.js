@@ -98,7 +98,7 @@ app.get('/', fetchGitHub, fetchSkills, fetchWorkByCompany, fetchEducation, async
     //easier to read with assignments up here than in the res.render
     const skills = res.locals.skills;
     const github = res.locals.github;
-    const work = res.locals.work;
+    const work = res.locals.workByCompany;
     const education = res.locals.education;
     
     res.status(200).render('index', {
@@ -126,7 +126,7 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWorkByCompany, fetchEducation,
     //easier to read with assignments up here than in the res.render
     const skills = res.locals.skills;
     const github = res.locals.github;
-    const work = res.locals.work;
+    const work = res.locals.workByCompany;
     const education = res.locals.education;
     const url = new URL(basics.website);
 
