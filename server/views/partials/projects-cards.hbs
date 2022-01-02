@@ -1,0 +1,46 @@
+<section class="projects-container inner-container">
+  <h2 class="container-title {{#if isResume}} h4{{/if}}" id="projects"><i class="fas fa-code-branch"></i> Projects</h2>
+  <div class="cards">
+    <!-- Semantic HTML note: using article not section b/c each GitHub repo can be found independently on GitHub -->
+    {{#each github.repos as | repo | }}    
+      <article class="card mb-3">
+        <header class="card-header">
+          <h1 class="card-title text-center h4 font-weight-bold">{{ repo.name }}</h1>
+        </header>
+        <section class="card-body">
+          <p class="card-text mb-4">{{ repo.description }}</p>
+          <div class="card-text mb-4">
+            <dl>
+              <dt class="d-inline-block">Programming Languages:</dt>
+              {{#each repo.languages.languageList as | listItem |}}
+              <dd class="d-inline-block pipe-separator">{{ listItem.language.name }} </dd>
+              {{/each}}
+            </dl>
+          </div>
+          <div class="card-text small mb-4">
+            <dl>
+              <dt class="d-inline-block">Topics:</dt>
+              {{#each repo.repositoryTopics.nodes as | node |}}
+              <dd class="d-inline-block pipe-separator">{{ node.topic.name }} </dd>
+              {{/each}}
+            </dl>
+          </div>
+
+        </section>
+    
+        <footer class="card-footer bg-transparent text-center">
+    
+          <a href="{{ repo.url }}" target="_blank" rel="noreferrer noopener" class="link">
+            <i class="fas fa-fw fa-code-branch"></i><span class="link-text">GitHub</span></a>
+
+          {{#if repo.homepageUrl }}
+          <a href="{{ repo.homepageUrl }}" target="_blank" rel="noreferrer noopener" class="link">
+            <i class="fas fa-fw fa-globe"></i><span class="link-text">Demo</span>
+          </a>
+          {{/if}} 
+               
+        </footer>
+      </article>
+    {{/each}}
+  </div>
+</section>

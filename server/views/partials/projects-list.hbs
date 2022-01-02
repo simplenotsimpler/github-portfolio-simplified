@@ -1,0 +1,35 @@
+  <section class="projects-container mb-3">
+    <h2 class="container-title h4" id="projects"><i class="fas fa-code-branch"></i> Projects</h2>
+    <ul class="list-group list-group-flush">
+      {{#each github.repos as | repo | }}
+      <li class="list-group-item">
+        <article>
+          <header class="h-25">
+            <h1 class="h5 fw-bold text-decoration-underline">{{ repo.name }}</h1>
+          </header>
+          <section>
+            <p class="project-description">{{ repo.description }}</p>               
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-fw fa-code-branch"></i>
+                <span class="fw-bold">GitHub:</span>
+                <a href="{{ repo.url }}" target="_blank" rel="noreferrer noopener" class="link">
+                  <span class="link-text">{{ cleanUri repo.url }}</span></a>
+              </li>
+
+              {{#if repo.homepageUrl }}
+              <li>
+                <i class="fas fa-fw fa-globe"></i>
+                <span class="fw-bold">Demo:</span>
+                <a href="{{ repo.homepageUrl }}" target="_blank" rel="noreferrer noopener" class="link">
+                  <span class="link-text">{{ cleanUri repo.homepageUrl }}</span>
+                </a>
+              </li>
+              {{/if}}                 
+            </ul>                            
+          </section>            
+        </article>
+      </li>
+      {{/each}}
+    </ul>
+  </section>

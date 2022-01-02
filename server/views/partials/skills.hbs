@@ -1,0 +1,17 @@
+<section class="skills-container inner-container">
+  <h2 class="container-title {{#if isResume}} h4{{/if}}" id="skills"><i class="fas fa-tools"></i> Skills</h2>
+  <dl class="card mb-3">
+    {{#each skills as | skill | }}
+      <div>
+        <dt class="d-inline-block">
+          {{ skill.name }}:
+        </dt>
+          {{#each skill.keywords as | keyword |}}
+            <dd class="d-inline-block pipe-separator">
+              {{ keyword }}
+            </dd>
+          {{/each}}
+      </div>
+    {{/each}}    
+  </dl>
+</section>

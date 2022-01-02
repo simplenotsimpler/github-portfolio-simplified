@@ -1,0 +1,14 @@
+<section class="about-container inner-container">
+  <div class="d-flex justify-content-between">
+  <h2 class="container-title {{#if isResume}} h4{{/if}}" id="about"><i class="fas fa-user"></i> About</h2>
+  {{#unless isResume}}
+    <a href="/resume" target="_blank" rel="noopener noreferrer" class="link">
+      <i class="fas faw fa-print"></i><span class="link-text">Resume</span>
+    </a>
+  {{/unless}}
+  </div>
+  <p class="about {{#unless isResume }}card mb-3 {{/unless}}">    
+    {{ basics.about }} 
+  </p>
+  
+</section>

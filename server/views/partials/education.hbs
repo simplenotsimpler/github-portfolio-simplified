@@ -1,0 +1,26 @@
+<section class="education-container inner-container">
+  <h2 class="container-title {{#if isResume}} h4{{/if}}" id="education"><i class="fas fa-university"></i> Education</h2>
+  <div class="cards"> 
+    {{#each education as | educationItem |}}
+      <section class="institution-item card mb-3">
+        <header class="education-header">
+          <h3 class="item-title institution {{#if ../isResume}} h5{{/if}}">
+            {{ educationItem.institution }}
+          </h3>
+          <p class="institution-location">
+            {{ educationItem.location }}
+          </p>    
+        </header>
+        <p class="degree-info {{#if ../isResume}} pt-1{{/if}}">
+          {{educationItem.studyType }}
+            {{#if educationItem.area}}
+              {{educationItem.area}}
+            {{/if}}
+        </p>
+        <p class="institution-date">
+          {{formatYear educationItem.startDate }} to {{formatYear educationItem.endDate }}
+          </p>
+      </section>
+    {{/each}}
+  </div>
+</section>
