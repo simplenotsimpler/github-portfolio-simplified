@@ -58,17 +58,6 @@ const fetchWorkByCompany = async (req, res, next) => {
         ...({location: el.positions.find(position => position.endDate === el.companyEndDate).location})
     }));
 
-
-    // res.locals.workByCompany = res.locals.workByCompany.map(el )
-    // for await (const el of res.locals.workByCompany) { 
-    //   // el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));      
-      
-    //   el.positions = el.positions.map (position => ({
-    //     ...position,
-    //     ...(position.endDate === currentDate && {endDate: 'Present'})
-    //   }));        
-    //   }
-
     
     next();
 
