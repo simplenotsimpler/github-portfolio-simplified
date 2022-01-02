@@ -22,6 +22,7 @@ const {basics} = require('./data/basics.json');
 const fetchSkills = require('./middlewares/fetch-skills');
 const fetchGitHub = require('./middlewares/fetch-github');
 const fetchWorkByCompany = require('./middlewares/fetch-work-by-company');
+const fetchWork = require('./middlewares/fetch-work');
 const fetchEducation = require('./middlewares/fetch-education');
 
 //set app
@@ -155,6 +156,40 @@ app.get('/resume', fetchGitHub, fetchSkills, fetchWorkByCompany, fetchEducation,
 
 });
 
+app.get('/resume-ats', fetchGitHub, fetchSkills, fetchWork, fetchEducation, async (req, res, next) => {
+  try {
+
+    //easier to read with assignments up here than in the res.render
+    const skills = res.locals.skills;
+    const github = res.locals.github;
+    const work = res.locals.work;
+    const education = res.locals.education;
+    const url = new URL(basics.website);
+
+    const host = url.host;
+    const website = basics.website;
+    
+    res.status(200).render('resume-ats', {
+      realName: process.env.REAL_NAME,
+      basics, 
+      github, 
+      skills,
+      work,
+      education, 
+      siteName: `${process.env.REAL_NAME} | ${github.githubName} |  Resume`,
+      isError: false,
+      layout: false,
+      website,
+      host,
+      isResume: true
+    });   
+
+  } catch (error) {
+    next(error);
+  }
+
+
+});
 /* ==================================== */
 /*   INFORMAL UNHANDLED TESTING         */
 /* ==================================== */

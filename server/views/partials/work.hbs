@@ -1,0 +1,26 @@
+<section class="work-container inner-container">
+  <h2 class="container-title {{#if isResume}} h4{{/if}}" id="work"><i class="fas fa-suitcase"></i> Work Experience</h2>
+  <div class="cards">
+    {{#each work as | workItem | }}
+      <section class="card mb-3">
+        <header class="company-header">
+          {{!-- https://handlebarsjs.com/guide/expressions.html#changing-the-context  --}}
+          <h3 class="item-title company {{#if ../isResume}} h5{{/if}}">
+            {{ workItem.company }}
+          </h3>
+          <p class="company-location">
+            {{ workItem.location }}
+          </p>
+        </header>
+    
+        <ul class="combined-highlights">
+          {{#each workItem.highlights as | highlight| }}
+            <li class="highlight-item">
+              {{{ addUri highlight }}}
+            </li>
+          {{/each}} 
+        </ul>
+      </section>
+    {{/each}}    
+  </div>
+</section>

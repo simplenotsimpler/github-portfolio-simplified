@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head}}
+</head>
+
+<body class="body-container container-fluid">
+ 
+  <header class="header-container d-flex justify-content-between">
+    <div class="site-brand-container ml-2 mb-2">
+      
+      {{#if isError}}
+          <h1 class="logo-text text-center">
+            <i class="far fa-surprise"></i>
+            Oops...
+          </h1>    
+      {{else}} 
+
+      <div class="logo-block">
+        <h1 class="logo-text">
+           {{ realName}}
+        </h1>  
+        <h2 class="job-title">{{ basics.jobTitle }}</h2>
+      </div>
+      {{/if}}  
+    </div>
+
+    <ul class="contact-list list-unstyled">
+      <li>
+        <i class="contact-icon fas fa-fw fa-fw fa-envelope"></i>
+        <a href="mailto:{{ basics.email }}">
+          <span class="contact-text">{{ basics.email }}</span>
+        </a>
+      </li>
+      <li>
+        <i class="contact-icon fas fa-fw fa-globe"></i>
+         <a href="{{website}}" target="_blank" rel="noopener noreferrer">
+          <span class="contact-text">{{host}}</span>
+        </a>
+      </li>
+      <!-- LinkedIn profile is public, but LinkedIn detects IP and requires login so it can force recruiters to sign in. --> 
+      {{#each basics.profiles as | profile |}}
+        <li>        
+          <i class="contact-icon fab fa-fw fa-{{toLowerCaseHbs profile.network }} "></i>
+          <a href="{{ profile.url }}" target="_blank" rel="noreferrer noopener">
+            <span class="contact-text">{{ cleanUri profile.url}}</span>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </header>
+
+  <main class="main-container mt-2">
+    {{> about}}
+      
+    {{> projects-list}}
+
+    {{> skills}}
+    
+    {{#if work}}
+      {{> work}}
+    {{/if}}
+
+    {{#if education }}
+      {{> education}}
+    {{/if}}        
+  </main>   
+</body>
+
+</html>
