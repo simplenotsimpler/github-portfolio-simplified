@@ -31,29 +31,44 @@ const fetchWorkByCompany = async (req, res, next) => {
     });      
     
     */
-    res.locals.workByCompany.sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate));
 
     /* 
-      replace forEach with for...of loop to fix sort bug
-      - sort bug only appeared on Heroku
-      - occurred when open the https://github-portfolio-simplified.herokuapp.com/ link or refreshed
-      - occurred in Firefox and Chrome
-
+      https://amberley.dev/blog/2020-09-07-conditionally-add-to-array-or-obj/
+      https://www.kevinpeters.net/adding-object-properties-conditionally-with-es-6
     */
 
-    for await (const el of res.locals.workByCompany) { 
-      el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
+    //chaining eliminates race condition vs. separate for awaits
+    res.locals.workByCompany = 
+      res.locals.workByCompany
+        //sort companies by date
+        .sort((a, b) => new Date(b.companyEndDate) - new Date(a.companyEndDate))
+        .map(el => ({
+        ...el,
+        ...({positions: 
+          el.positions
+            //sort positions by date
+            .sort((a, b) => new Date(b.endDate) - new Date(a.endDate))
+            //replace with present
+            .map (position => ({
+              ...position,
+              ...(position.endDate === currentDate && {endDate: 'Present'})
+            }))
+        }),
+        //add company location
+        ...({location: el.positions.find(position => position.endDate === el.companyEndDate).location})
+    }));
+
+
+    // res.locals.workByCompany = res.locals.workByCompany.map(el )
+    // for await (const el of res.locals.workByCompany) { 
+    //   // el.positions.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));      
       
-      for await (const position of el.positions) {
-        if(position.endDate === el.companyEndDate){
-          el.location = position.location;
-        }
-        
-        if(position.endDate === currentDate){
-          position.endDate = 'Present';
-        } 
-      }
-    }
+    //   el.positions = el.positions.map (position => ({
+    //     ...position,
+    //     ...(position.endDate === currentDate && {endDate: 'Present'})
+    //   }));        
+    //   }
+
     
     next();
 
