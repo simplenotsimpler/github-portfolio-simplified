@@ -1,6 +1,6 @@
-<section class="skills-container inner-container">
+<section class="skills-container {{#unless isResume}}inner-container{{/unless}}">
   <h2 class="container-title {{#if isResume}} h4{{/if}}" id="skills"><i class="fas fa-tools"></i> Skills</h2>
-  <dl class="card mb-3">
+  <dl class="{{#unless ../isResume}}card mb-3{{/unless}} description-list">
     {{#each skills as | skill | }}
       <div>
         <dt class="d-inline-block">
