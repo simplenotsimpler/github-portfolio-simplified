@@ -13,31 +13,22 @@
       </h1>    
   {{else}} 
 
-   <!-- 
-    NOTE: 
-    Ignore the VS Code web accessibility error:
-      Provide a descriptive text in between the tags
-    It is not seeing this correctly with using a template engine.
-  -->
-
   <!-- 
     Note: BS5.x changes in sizing, etc. to account for RTL. use start/end
     https://getbootstrap.com/docs/5.1/utilities/spacing/
     s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL
     e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL
   -->
-  <a href="/">
-    <img src="/img/sns_logo-min.png" width="60px" height="60px" alt="logo" aria-hidden="true" class="float-left pe-1 me-1">
-  </a>
-  <div class="logo-block">
-    <a href="/">
-      <h1 class="logo-text">
-        {{ github.githubName }}
-      </h1>
-    </a>
-    <h2 class="job-title">{{ basics.jobTitle }}</h2>
+
+  <a href="/" class="d-flex">  
+    <img src="/img/sns_logo-min.png" width="60px" height="60px" alt="logo" aria-hidden="true" class="pe-1 me-1 align-middle">
+    <div class="flex-column">
+      <h1 class="logo-text">{{ github.githubName }}</h1>
+      <h2 class="job-title">{{ basics.jobTitle }}</h2>
+    </div>
+  </a>    
   </div>
-  {{/if}}  
+{{/if}}  
 </div>
 
 {{#unless isError}}
