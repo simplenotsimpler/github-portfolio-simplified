@@ -8,8 +8,8 @@
     "dev": "nodemon server-local"
   },
   "engines": {
-    "node": ">=16.0.0 <17.0.0",
-    "npm": ">=8.6.0"
+    "node": ">=16.16.0 <17.0.0",
+    "npm": ">=8.15.1"
   },
   "author": "SimpleNotSimpler",
   "license": "MIT",
