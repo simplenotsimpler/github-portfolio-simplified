@@ -9,7 +9,7 @@ const fetchGitHub = async (req, res, next) => {
     //MAYBE: remove repositoryTopics? otherwise display
     const ghQueryJSON = `
     {
-      "query": "query {viewer { githubName: name githubLink: url email pinnedItems(first: 10) {repos: nodes { ... on Repository { name description url homepageUrl repositoryTopics(first: 20) { nodes { topic { name } } } languages(first: 20, orderBy: {field: SIZE, direction: DESC}) { languageList:edges {language: node { name } } } } } } } }"
+      "query": "query {viewer { githubName: name githubLink: url email pinnedItems(first: 10) {repos: nodes { ... on Repository { name description url homepageUrl stargazerCount repositoryTopics(first: 20) { nodes { topic { name } } } languages(first: 20, orderBy: {field: SIZE, direction: DESC}) { languageList:edges {language: node { name } } } } } } } }"
     }
     `;
   
