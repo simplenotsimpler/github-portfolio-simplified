@@ -4,8 +4,13 @@ const fetchGitHub = async (req, res, next) => {
   try {
     const token = process.env.GH_TOKEN;
     const url = process.env.GH_URL;
+    
+    /* 
+      NOTE: 
+      can't sort by stargazerCount in query 
+      pinnedItems doesn't accept argument 'orderBy
+    */
 
-    //MAYBE: remove repositoryTopics? otherwise display
     const ghQueryJSON = `
     {
       "query": "query {viewer { githubName: name githubLink: url email pinnedItems(first: 10) {repos: nodes { ... on Repository { name description url homepageUrl stargazerCount forks {totalCount} watchers { totalCount } repositoryTopics(first: 20) { nodes { topic { name } } } languages(first: 20, orderBy: {field: SIZE, direction: DESC}) { languageList:edges {language: node { name } } } } } } } }"
@@ -38,12 +43,18 @@ const fetchGitHub = async (req, res, next) => {
       },
     } = axiosResponse.data;
 
+    //sort pinnedRepos by stargazerCount
+    repos.sort((a, b) => b.stargazerCount - a.stargazerCount);
+  
     res.locals.github = {
       githubName,
       email,
       githubLink,
       repos,
     };
+
+    
+   
 
     next();
   } catch (error) {
