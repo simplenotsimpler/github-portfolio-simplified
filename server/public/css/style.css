@@ -178,7 +178,7 @@ a:hover, a:visited {
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
     "about-area about-area about-area"    
-    "projects-area projects-area projects-area"
+    "repos-area repos-area repos-area"
     "skills-area skills-area skills-area"
     "work-area work-area work-area"
     "education-area education-area education-area"
@@ -198,8 +198,8 @@ a:hover, a:visited {
   font-size: 1.25rem;
 }
 
-.projects-container {
-  grid-area: projects-area;
+.repos-container {
+  grid-area: repos-area;
 }
 
 .skills-container {
@@ -500,7 +500,7 @@ dt {
     grid-template-rows: repeat(5, auto);
     grid-template-areas:
       "about-area"
-      "projects-area"
+      "repos-area"
       "skills-area"
       "work-area"
       "education-area"
