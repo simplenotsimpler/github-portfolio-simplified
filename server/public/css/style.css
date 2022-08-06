@@ -91,6 +91,7 @@ a:hover, a:visited {
 .counts {
   color: var(--color-primary);
   font-weight: bold;
+  font-size: 0.75rem;
 }
 
 .text-bg-primary{
@@ -436,8 +437,8 @@ dt {
  .cards {
   display: grid;
   column-gap: 1.25rem;
-  /* min increased from 18.75 to 22 - helps push cards on next line when more than 3 repos */
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
 .card {

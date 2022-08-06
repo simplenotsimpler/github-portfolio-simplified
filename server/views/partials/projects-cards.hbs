@@ -5,8 +5,8 @@
     {{#each github.repos as | repo | }}    
       <article class="card mb-3">
         <header class="card-header">         
-          <h1 class="card-title text-center h4 font-weight-bold">{{ repo.name }}</h1>
-          <div class="card-text counts d-flex small justify-content-center">
+          <h1 class="card-title text-center h6 fw-semibold">{{ repo.name }}</h1>
+          <div class="card-text counts d-flex justify-content-center">
             <div class="p-2"><span><i class="fas fa-star"></i> Star </span><span class="badge rounded-pill text-bg-primary">{{repo.stargazerCount}}</span></div>
             <div class="p-2"><span><i class="fas fa-eye"></i> Watch </span><span class="badge rounded-pill text-bg-primary">{{repo.watchers.totalCount}}</span></div>
             <div class="p-2"><span><i class="fas fa-code-branch"></i> Fork </span><span class="badge rounded-pill text-bg-primary">{{repo.forks.totalCount}}</span></div>
@@ -14,8 +14,7 @@
         </header>
         <section class="card-body">
           <p class="card-text mb-4">{{ repo.description }}</p>
-
-          <div class="card-text mb-4">
+          <div class="card-text mb-1">
             <dl>
               <dt class="d-inline-block">Programming Languages:</dt>
               {{#each repo.languages.languageList as | listItem |}}
