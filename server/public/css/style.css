@@ -87,6 +87,16 @@ a:hover, a:visited {
   color: var(--color-darkest);
 }
 
+/* Counts */
+.counts {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.text-bg-primary{
+  background-color: var(--color-primary) !important;
+}
+
 .link-text{
   padding-left: 0.25rem;
 }
