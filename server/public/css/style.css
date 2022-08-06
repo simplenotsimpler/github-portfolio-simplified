@@ -91,7 +91,7 @@ a:hover, a:visited {
 .counts {
   color: var(--color-primary);
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 
 .text-bg-primary{
