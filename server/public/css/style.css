@@ -6,7 +6,6 @@
  */
 
 :root {
-
   /* 
   
     https://darekkay.com/blog/accessible-color-palette/
@@ -26,28 +25,26 @@
   /* Magent color palette from USWDS */
 
   --magenta-5: #f9f0f2;
-	--magenta-10: #f6e1e8;
-	--magenta-20: #f0bbcc;
-	--magenta-30: #e895b3;
-	--magenta-40: #e0699f;
-	--magenta-50: #c84281;
-	--magenta-60: #8b4566;
-	--magenta-70: #66364b;
-	--magenta-80: #402731;
-	--magenta-90: #1b1617;
-
+  --magenta-10: #f6e1e8;
+  --magenta-20: #f0bbcc;
+  --magenta-30: #e895b3;
+  --magenta-40: #e0699f;
+  --magenta-50: #c84281;
+  --magenta-60: #8b4566;
+  --magenta-70: #66364b;
+  --magenta-80: #402731;
+  --magenta-90: #1b1617;
 
   /* Magenta vivid color palette from USWDS: */
   --magenta-5v: #fff2f5;
-	--magenta-10v: #ffddea;
-	--magenta-20v: #ffb4cf;
-	--magenta-30v: #ff87b2;
-	--magenta-40v: #fd4496;
-	--magenta-50v: #d72d79;
-	--magenta-60v: #ab2165;
-	--magenta-70v: #731f44;
-	--magenta-80v: #4f172e;
-
+  --magenta-10v: #ffddea;
+  --magenta-20v: #ffb4cf;
+  --magenta-30v: #ff87b2;
+  --magenta-40v: #fd4496;
+  --magenta-50v: #d72d79;
+  --magenta-60v: #ab2165;
+  --magenta-70v: #731f44;
+  --magenta-80v: #4f172e;
 
   /* Colors */
   --color-primary: var(--magenta-50v);
@@ -57,16 +54,16 @@
 
   --color-background: #ccc;
   --shadow: 0 0.25rem 0.25rem rgba(104, 104, 104, 0.8);
-  
+
   --color-shadow-decimal: 0, 0, 0;
 
   --shadow-dark-50: 0.5rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.5);
-  --shadow-top-dark-50: 0rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.5);
+  --shadow-top-dark-50: 0rem 0.5rem 0.5rem
+    rgba(var(--color-shadow-decimal), 0.5);
   --shadow-dark-25: 0.5rem 0.5rem 0.5rem rgba(var(--color-shadow-decimal), 0.25);
 
-  --rounded-lg: 0.60rem;
-  
- }
+  --rounded-lg: 0.6rem;
+}
 
 /* 
   don't try to set fonts b/c of BS4 Reboot
@@ -83,7 +80,8 @@ a {
   text-decoration: underline;
 }
 
-a:hover, a:visited {
+a:hover,
+a:visited {
   color: var(--color-darkest);
 }
 
@@ -94,11 +92,11 @@ a:hover, a:visited {
   font-size: 0.7rem;
 }
 
-.text-bg-primary{
+.text-bg-primary {
   background-color: var(--color-primary) !important;
 }
 
-.link-text{
+.link-text {
   padding-left: 0.25rem;
 }
 
@@ -112,13 +110,12 @@ a:hover, a:visited {
   margin-right: 1rem;
 }
 
-
 /* height = 8rem - 1 row high */
 .container-title {
   font-weight: bold;
   font-size: 1.5rem;
   text-transform: uppercase;
-  margin-bottom: 0.5rem !important;  
+  margin-bottom: 0.5rem !important;
   scroll-margin: 8rem;
   color: var(--color-primary);
 }
@@ -143,7 +140,6 @@ a:hover, a:visited {
   padding: 0;
   margin: 0;
   padding-bottom: 0.5rem;
-
 }
 
 .header-container {
@@ -151,9 +147,7 @@ a:hover, a:visited {
   display: grid;
   grid-template-columns: inherit;
   grid-template-rows: auto;
-  grid-template-areas:
-    "site-brand-area quote-area nav-area"
-  ;
+  grid-template-areas: "site-brand-area quote-area nav-area";
 
   /* set row and col gaps separately */
   column-gap: inherit;
@@ -161,15 +155,12 @@ a:hover, a:visited {
 
   align-items: center;
 
-  padding-left: 0.5rem;
-  padding-right: 1.25rem;
+  padding: 0 1.25rem;
 
   /* background is transparent with position sticky. explicitly set. */
   background-color: var(--color-dark);
   color: var(--color-light);
 }
-
-
 
 .main-container {
   grid-area: main-area;
@@ -177,17 +168,13 @@ a:hover, a:visited {
   grid-template-columns: inherit;
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
-    "about-area about-area about-area"    
+    "about-area about-area about-area"
     "repos-area repos-area repos-area"
-    "skills-area skills-area skills-area"
-    "work-area work-area work-area"
-    "education-area education-area education-area"
-  ;
+    "skills-area skills-area skills-area";
 
   /* set row and col gaps separately */
   column-gap: inherit;
   row-gap: inherit;
-
 }
 
 .about-container {
@@ -206,14 +193,6 @@ a:hover, a:visited {
   grid-area: skills-area;
 }
 
-.work-container {
-  grid-area: work-area;
-}
-
-.education-container {
-  grid-area: education-area;
-}
-
 /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
 .site-brand-container {
   grid-area: site-brand-area;
@@ -221,7 +200,6 @@ a:hover, a:visited {
   align-self: start;
   display: flex;
   align-items: center;
-
 }
 
 .quote-container {
@@ -231,7 +209,6 @@ a:hover, a:visited {
 
 .nav-container {
   grid-area: nav-area;
-
 }
 
 .nav-list {
@@ -247,7 +224,6 @@ a:hover, a:visited {
   /* Bootstrap default for ul - margin-bottom: 1rem. Need to decrease so has space at top. Only shows as issue in Firefox */
   margin-bottom: 0;
   padding-top: 0.5rem;
-
 }
 
 /* https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons */
@@ -263,7 +239,7 @@ a:hover, a:visited {
   display: block;
 }
 
-.logo-block{
+.logo-block {
   display: block;
 }
 
@@ -323,118 +299,11 @@ dt {
 
 /**
  * =============================================
- * =                 WORK                      =
- * =============================================
- *
- */
-
-.company-header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  grid-template-areas:
-    "company company company-location"
-  ;
-  padding-bottom: 0.5rem;
-  border-bottom: solid;
-}
-
-.company {
-  grid-area: company;
-}
-
-.company-location {
-  grid-area: company-location;
-  justify-self: end;
-  font-weight: bold;
-}
-
-.company-date {
-  grid-area: company-date;
-  justify-self: end;
-  font-weight: bold;
-}
-
-.position {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-areas:
-    "position-title position-date"
-  ;
-  column-gap: 0.25rem;
-}
-
-.position-title {
-  grid-area: position-title;
-}
-
-.position-date {
-  grid-area: position-date;
-  justify-self: end;
-}
-
-
-/**
- * =============================================
- * =                 EDUCATION                 =
- * =============================================
- *
- */
-
-.institution-item {
-  padding-bottom: 0.5rem;
-  display: grid;
-  grid-template-rows: repeat(2, auto);
-  grid-template-columns: 1.5fr auto;
-  grid-template-areas:
-    "education-header-area education-header-area"
-    "degree-info-area institution-date-area"
-
-}
-
-.education-header {
-  display: grid;
-  grid-area: education-header-area;
-  grid-template-columns: 1.5fr auto;
-  align-items: center;
-  grid-template-areas:
-    "institution-area institution-location-area"
-  ;
-
-  column-gap: 0.5rem;
-
-  padding-bottom: 0.5rem;
-  border-bottom: solid;
-}
-
-.degree-info {
-  grid-area: degree-info-area;
-}
-
-.institution {
-  grid-area: institution-area;
-  font-weight: bold;
-}
-
-.institution-location {
-  grid-area: institution-location-area;
-  justify-self: end;
-  font-weight: bold;
-}
-
-.institution-date {
-  grid-area: institution-date-area;
-  justify-self: end;
-}
-
-
- /**
- * =============================================
  * =                 CARDS                     =
  * =============================================
  *
  */
- .cards {
+.cards {
   display: grid;
   column-gap: 1.25rem;
   /* grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); */
@@ -461,7 +330,6 @@ dt {
 
 /* actual size matching Bootstrap Grid large */
 @media only screen and (max-width: 992px) {
-
   .quote-container {
     display: none;
   }
@@ -490,9 +358,7 @@ dt {
     grid-template-rows: repeat(2, auto);
     grid-template-areas:
       "site-brand-area"
-      "nav-area"
-    ;
-    
+      "nav-area";
   }
 
   .main-container {
@@ -503,11 +369,9 @@ dt {
       "repos-area"
       "skills-area"
       "work-area"
-      "education-area"
-    ;
+      "education-area";
   }
 
-  
   [class$="container"] {
     scroll-margin: 24rem;
   }
